@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lghcode.bishe001.mapper.IocationMapper" >
+  <resultMap id="BaseResultMap" type="com.lghcode.bishe001.pojo.Iocation" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="area_no" property="areaNo" jdbcType="VARCHAR" />
+    <result column="area_explain" property="areaExplain" jdbcType="VARCHAR" />
+    <result column="row_no" property="rowNo" jdbcType="VARCHAR" />
+    <result column="row_explain" property="rowExplain" jdbcType="VARCHAR" />
+    <result column="seat_no" property="seatNo" jdbcType="VARCHAR" />
+    <result column="seat_explain" property="seatExplain" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

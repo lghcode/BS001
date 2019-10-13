@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lghcode.bishe001.mapper.InventoryMapper" >
+  <resultMap id="BaseResultMap" type="com.lghcode.bishe001.pojo.Inventory" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="limit_warn_count" property="limitWarnCount" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="findListPage" parameterType="java.util.Map" resultType="java.util.Map">
+    select iv.id,p.id productId, p.product_no productNo, p.name productName,
+    iv.count, iv.limit_warn_count, i.area_no areaNo, i.id iocationId
+    from inventory iv
+    left join product p on p.id = iv.product_id
+    left join iocation i on i.id = iv.location_id
+    <if test="name != null and name != ''">
+      AND p.name like CONCAT('%',#{name},'%' )
+    </if>
+  </select>
+  <select id="getAll"  resultType="com.lghcode.bishe001.pojo.vo.InventoryVo">
+    select iv.id,p.id productId, p.product_no productNo, p.name productName,
+    iv.count, iv.limit_warn_count, i.area_no areaNo, i.id iocationId
+    from inventory iv
+    left join product p on p.id = iv.product_id
+    left join iocation i on i.id = iv.location_id
+
+  </select>
+</mapper>
